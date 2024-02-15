@@ -15,5 +15,5 @@ docker run -it \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
   -v /home/codespace/Data_Eden/1_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
-  -p 5431 \
+  -p 5432:5432 \
 postgres:13
