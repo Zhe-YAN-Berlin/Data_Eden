@@ -1,12 +1,12 @@
 variable "credentials" {
   description = "value"
-  default     = "./my-creds.json"
+  default     = "./vm-service-acc-key.json"
 }
 
 
 variable "project" {
   description = "project"
-  default     = "terraform-demo-414613"
+  default     = "my-zhe-414813"
 }
 
 
@@ -24,7 +24,7 @@ variable "bq_dataset_name" {
 
 variable "gcs_bucket_name" {
   description = "my storage bucket name"
-  default     = "terraform-demo-414613"
+  default     = "my-zhe-414813"
 }
 
 
