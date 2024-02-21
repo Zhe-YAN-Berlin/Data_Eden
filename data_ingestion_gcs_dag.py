@@ -52,7 +52,7 @@ def upload_to_gcs(bucket, object_name, local_file):
 
 default_args = {
     "owner": "airflow",
-    "start_date": pendulum.today("UTC").subtract(days=1),
+    "start_date": datetime.utcnow(),
     "depends_on_past": False,
     "retries": 1,
 }
