@@ -3,6 +3,8 @@ import logging
 from datetime import timedelta
 import pendulum
 
+from dotenv import load_dotenv
+
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
@@ -10,12 +12,14 @@ from airflow.operators.python import PythonOperator
 from google.cloud import storage
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
 
-PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
-BUCKET = os.environ.get("GCP_GCS_BUCKET")
+load_dotenv()
+
+PROJECT_ID = os.getenv("GCP_PROJECT_ID")
+BUCKET = os.getenv("GCP_GCS_BUCKET")
 #BUCKET = "my-zhe-414813"
 
-print(str(BUCKET))
-'''
+print((BUCKET))
+
 parquet_file = "yellow_tripdata_2023-01.parquet"
 parquet_url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{parquet_file}"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/home/datatalks_jan/Data_Eden/3_airflow_demo/airflow_docker")
@@ -28,14 +32,13 @@ try:
         storage.blob._DEFAULT_CHUNKSIZE = 5 * 1024 * 1024  # 5 MB
 
         client = storage.Client()
-        bucket = client.bucket(bucket)
+        bucket = client.bucket(BUCKET)
 
-        blob = bucket.blob(object_name)
-        blob.upload_from_filename(local_file)
+        blob = bucket.blob(f"{parquet_file}")
+        blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
 
         print("upload sucess!")
 
-    except Exception:
-        print("upload unsucess!")
-        raise
-'''
+except Exception:
+    print("upload unsucess!")
+    raise
