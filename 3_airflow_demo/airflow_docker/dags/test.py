@@ -22,7 +22,7 @@ print((BUCKET))
 
 parquet_file = "yellow_tripdata_2023-01.parquet"
 parquet_url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{parquet_file}"
-path_to_local_home = os.environ.get("AIRFLOW_HOME", "/home/datatalks_jan/Data_Eden/3_airflow_demo/airflow_docker")
+path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all') 
 
 try:

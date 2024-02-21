@@ -3,7 +3,7 @@ import logging
 from datetime import timedelta
 from datetime import datetime
 import pendulum
-
+import requests
 from dotenv import load_dotenv
 
 from airflow import DAG
@@ -18,14 +18,19 @@ load_dotenv()
 PROJECT_ID = os.getenv("GCP_PROJECT_ID")
 BUCKET = os.getenv("GCP_GCS_BUCKET")
 
-print(BUCKET)
-
 parquet_file = "yellow_tripdata_2023-01.parquet"
 parquet_url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{parquet_file}"
-print(parquet_url)
 path_to_local_home = os.getenv("AIRFLOW_HOME", "/home/datatalks_jan/Data_Eden/3_airflow_demo/airflow_docker")
-print(path_to_local_home)
 BIGQUERY_DATASET = os.getenv("BIGQUERY_DATASET", 'demo_dataset') 
+
+def download_file():
+    response = requests.get(parquet_url)
+    if response.status_code == 200:
+        with open(local_file_path, 'wb') as f:
+            f.write(response.content)
+        print(f"File downloaded to: {local_file_path}")
+    else:
+        print("Failed to download file.")
 
 default_args = {
     "owner": "airflow",
@@ -43,9 +48,9 @@ with DAG(
     tags=['zhe-data-2-gcs'],
 ) as dag:
 
-    download_parquet_task = BashOperator(
+    download_parquet_task = PythonOperator(
         task_id="download_parquet_task",
-        bash_command=f"curl -sSL {parquet_url} > {path_to_local_home}/{parquet_file}"
+        python_callable=download_file
     )
     
     download_parquet_task
