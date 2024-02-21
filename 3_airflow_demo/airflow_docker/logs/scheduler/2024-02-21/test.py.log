@@ -5569,3 +5569,333 @@ Traceback (most recent call last):
 ValueError: Cannot determine path without bucket name.
 [2024-02-21T17:22:36.138+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
 [2024-02-21T17:22:36.168+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.083 seconds
+[2024-02-21T17:23:07.010+0000] {processor.py:161} INFO - Started process (PID=27401) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:23:07.011+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:23:07.013+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:23:07.012+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:23:07.027+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:23:07.047+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:23:07.053+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:23:07.048+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:23:07.054+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:23:07.085+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.082 seconds
+[2024-02-21T17:23:37.487+0000] {processor.py:161} INFO - Started process (PID=27458) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:23:37.494+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:23:37.497+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:23:37.496+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:23:37.516+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:23:37.540+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:23:37.545+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:23:37.540+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:23:37.546+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:23:37.583+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.107 seconds
+[2024-02-21T17:24:07.724+0000] {processor.py:161} INFO - Started process (PID=27516) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:24:07.725+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:24:07.727+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:24:07.726+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:24:07.740+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:24:07.763+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:24:07.769+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:24:07.764+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:24:07.770+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:24:07.800+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.083 seconds
+[2024-02-21T17:24:37.965+0000] {processor.py:161} INFO - Started process (PID=27574) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:24:37.971+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:24:37.973+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:24:37.972+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:24:37.988+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:24:38.013+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:24:38.017+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:24:38.013+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:24:38.017+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:24:38.051+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.092 seconds
+[2024-02-21T17:25:08.295+0000] {processor.py:161} INFO - Started process (PID=27632) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:25:08.297+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:25:08.298+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:25:08.298+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:25:08.312+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:25:08.334+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:25:08.338+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:25:08.334+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:25:08.338+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:25:08.373+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.084 seconds
+[2024-02-21T17:25:39.000+0000] {processor.py:161} INFO - Started process (PID=27691) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:25:39.004+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:25:39.007+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:25:39.006+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:25:39.027+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:25:39.054+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:25:39.058+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:25:39.054+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:25:39.058+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:25:39.094+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.100 seconds
+[2024-02-21T17:26:09.646+0000] {processor.py:161} INFO - Started process (PID=27749) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:26:09.647+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:26:09.649+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:26:09.648+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:26:09.662+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:26:09.681+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:26:09.686+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:26:09.681+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:26:09.687+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:26:09.720+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.080 seconds
+[2024-02-21T17:26:40.311+0000] {processor.py:161} INFO - Started process (PID=27807) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:26:40.315+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:26:40.316+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:26:40.316+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:26:40.331+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:26:40.354+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:26:40.358+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:26:40.354+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:26:40.359+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:26:40.389+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.084 seconds
+[2024-02-21T17:27:11.124+0000] {processor.py:161} INFO - Started process (PID=27866) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:27:11.126+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:27:11.127+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:27:11.127+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:27:11.140+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:27:11.162+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:27:11.166+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:27:11.162+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:27:11.166+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:27:11.200+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.083 seconds
+[2024-02-21T17:27:41.687+0000] {processor.py:161} INFO - Started process (PID=27924) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:27:41.690+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:27:41.691+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:27:41.690+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:27:41.704+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:27:41.728+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:27:41.732+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:27:41.728+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:27:41.733+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:27:41.764+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.083 seconds
+[2024-02-21T17:28:12.107+0000] {processor.py:161} INFO - Started process (PID=27983) to work on /opt/airflow/dags/test.py
+[2024-02-21T17:28:12.109+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T17:28:12.111+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:28:12.111+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T17:28:12.132+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T17:28:12.150+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T17:28:12.156+0000] {logging_mixin.py:188} INFO - [2024-02-21T17:28:12.150+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2799, in _handle_filename_and_upload
+    self._prep_and_do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+    created_json = self._do_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2430, in _do_upload
+    response = self._do_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2248, in _do_resumable_upload
+    upload, transport = self._initiate_resumable_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2078, in _initiate_resumable_upload
+    hostname=hostname, bucket_path=self.bucket.path, api_version=_API_VERSION
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1172, in path
+    raise ValueError("Cannot determine path without bucket name.")
+ValueError: Cannot determine path without bucket name.
+[2024-02-21T17:28:12.157+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T17:28:12.192+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.093 seconds

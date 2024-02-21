@@ -34,7 +34,7 @@ def download_file():
 
 default_args = {
     "owner": "airflow",
-    "start_date": datetime.now(),
+    "start_date": pendulum.datetime(2024, 2, 21),
     "depends_on_past": False,
     "retries": 1,
 }
