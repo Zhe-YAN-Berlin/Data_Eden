@@ -184,3 +184,10 @@
 [2024-02-21T14:06:53.299+0000] {logging_mixin.py:188} INFO - [2024-02-21T14:06:53.299+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2024-02-21T14:06:53.347+0000] {logging_mixin.py:188} INFO - [2024-02-21T14:06:53.346+0000] {dag.py:3823} INFO - Setting next_dagrun for data_ingestion_gcs_dag to 2024-02-20 00:00:00+00:00, run_after=2024-02-21 00:00:00+00:00
 [2024-02-21T14:06:53.383+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.190 seconds
+[2024-02-21T14:07:23.967+0000] {processor.py:161} INFO - Started process (PID=5729) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T14:07:23.970+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T14:07:23.976+0000] {logging_mixin.py:188} INFO - [2024-02-21T14:07:23.975+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T14:07:24.021+0000] {processor.py:840} INFO - DAG(s) 'data_ingestion_gcs_dag' retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T14:07:24.061+0000] {logging_mixin.py:188} INFO - [2024-02-21T14:07:24.060+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2024-02-21T14:07:24.097+0000] {logging_mixin.py:188} INFO - [2024-02-21T14:07:24.097+0000] {dag.py:3823} INFO - Setting next_dagrun for data_ingestion_gcs_dag to 2024-02-20 00:00:00+00:00, run_after=2024-02-21 00:00:00+00:00
+[2024-02-21T14:07:24.124+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.167 seconds
