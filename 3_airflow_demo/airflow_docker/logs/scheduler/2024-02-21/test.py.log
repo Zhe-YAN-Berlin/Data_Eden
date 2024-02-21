@@ -3449,3 +3449,103 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2023-01.parquet'
 [2024-02-21T16:36:23.135+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
 [2024-02-21T16:36:23.173+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.095 seconds
+[2024-02-21T16:36:53.470+0000] {processor.py:161} INFO - Started process (PID=22165) to work on /opt/airflow/dags/test.py
+[2024-02-21T16:36:53.473+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T16:36:53.476+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:36:53.475+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T16:36:53.497+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T16:36:53.520+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T16:36:53.525+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:36:53.520+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2797, in _handle_filename_and_upload
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2023-01.parquet'
+[2024-02-21T16:36:53.525+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T16:36:53.587+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.126 seconds
+[2024-02-21T16:37:23.838+0000] {processor.py:161} INFO - Started process (PID=22221) to work on /opt/airflow/dags/test.py
+[2024-02-21T16:37:23.841+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T16:37:23.843+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:37:23.842+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T16:37:23.861+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T16:37:23.882+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T16:37:23.887+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:37:23.883+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2797, in _handle_filename_and_upload
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2023-01.parquet'
+[2024-02-21T16:37:23.887+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T16:37:23.925+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.096 seconds
+[2024-02-21T16:37:54.489+0000] {processor.py:161} INFO - Started process (PID=22278) to work on /opt/airflow/dags/test.py
+[2024-02-21T16:37:54.491+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T16:37:54.492+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:37:54.492+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T16:37:54.506+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T16:37:54.529+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T16:37:54.532+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:37:54.529+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2797, in _handle_filename_and_upload
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2023-01.parquet'
+[2024-02-21T16:37:54.532+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T16:37:54.564+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.082 seconds
+[2024-02-21T16:38:24.956+0000] {processor.py:161} INFO - Started process (PID=22337) to work on /opt/airflow/dags/test.py
+[2024-02-21T16:38:24.959+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T16:38:24.960+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:38:24.960+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T16:38:24.977+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T16:38:24.997+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T16:38:25.001+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:38:24.998+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2797, in _handle_filename_and_upload
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2023-01.parquet'
+[2024-02-21T16:38:25.002+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T16:38:25.033+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.083 seconds
+[2024-02-21T16:38:55.461+0000] {processor.py:161} INFO - Started process (PID=22395) to work on /opt/airflow/dags/test.py
+[2024-02-21T16:38:55.463+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
+[2024-02-21T16:38:55.465+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:38:55.465+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
+[2024-02-21T16:38:55.483+0000] {logging_mixin.py:188} INFO - None
+[2024-02-21T16:38:55.506+0000] {logging_mixin.py:188} INFO - upload unsucess!
+[2024-02-21T16:38:55.510+0000] {logging_mixin.py:188} INFO - [2024-02-21T16:38:55.506+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test.py", line 38, in <module>
+    blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2929, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2797, in _handle_filename_and_upload
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2023-01.parquet'
+[2024-02-21T16:38:55.511+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test.py
+[2024-02-21T16:38:55.549+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 0.096 seconds
