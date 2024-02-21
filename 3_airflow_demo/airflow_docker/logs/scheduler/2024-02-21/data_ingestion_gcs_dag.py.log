@@ -4269,3 +4269,115 @@ Traceback (most recent call last):
 NameError: name 'datetime' is not defined
 [2024-02-21T19:32:25.978+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
 [2024-02-21T19:32:26.010+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.057 seconds
+[2024-02-21T19:32:56.580+0000] {processor.py:161} INFO - Started process (PID=6104) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:32:56.583+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:32:56.585+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:32:56.585+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:32:56.610+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:32:56.607+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:32:56.611+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:32:56.655+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.085 seconds
+[2024-02-21T19:33:26.721+0000] {processor.py:161} INFO - Started process (PID=6160) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:33:26.723+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:33:26.725+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:33:26.724+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:33:26.746+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:33:26.744+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:33:26.746+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:33:26.778+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.069 seconds
+[2024-02-21T19:33:56.968+0000] {processor.py:161} INFO - Started process (PID=6212) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:33:56.971+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:33:56.972+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:33:56.972+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:33:56.988+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:33:56.987+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:33:56.989+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:33:57.021+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.058 seconds
+[2024-02-21T19:34:27.452+0000] {processor.py:161} INFO - Started process (PID=6267) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:34:27.453+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:34:27.455+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:34:27.454+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:34:27.470+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:34:27.469+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:34:27.471+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:34:27.509+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.063 seconds
+[2024-02-21T19:34:57.893+0000] {processor.py:161} INFO - Started process (PID=6323) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:34:57.895+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:34:57.897+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:34:57.896+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:34:57.911+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:34:57.910+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:34:57.912+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:34:57.944+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.058 seconds
+[2024-02-21T19:35:28.427+0000] {processor.py:161} INFO - Started process (PID=6378) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:35:28.428+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:35:28.430+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:35:28.429+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:35:28.445+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:35:28.444+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:35:28.445+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:35:28.482+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.061 seconds
+[2024-02-21T19:35:58.733+0000] {processor.py:161} INFO - Started process (PID=6432) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:35:58.736+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:35:58.737+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:35:58.737+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:35:58.753+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:35:58.752+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:35:58.753+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:35:58.796+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.069 seconds
+[2024-02-21T19:36:29.206+0000] {processor.py:161} INFO - Started process (PID=6487) to work on /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:36:29.208+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_ingestion_gcs_dag.py for tasks to queue
+[2024-02-21T19:36:29.210+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:36:29.209+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:36:29.226+0000] {logging_mixin.py:188} INFO - [2024-02-21T19:36:29.224+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/data_ingestion_gcs_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/data_ingestion_gcs_dag.py", line 65, in <module>
+    "start_date": datetime.utcnow(),
+NameError: name 'datetime' is not defined
+[2024-02-21T19:36:29.226+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/data_ingestion_gcs_dag.py
+[2024-02-21T19:36:29.259+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_ingestion_gcs_dag.py took 0.059 seconds

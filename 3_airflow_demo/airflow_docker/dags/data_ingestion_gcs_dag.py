@@ -2,6 +2,8 @@ import os
 import logging
 from datetime import timedelta
 import pendulum
+import requests
+from datetime import datetime
 
 from dotenv import load_dotenv
 
