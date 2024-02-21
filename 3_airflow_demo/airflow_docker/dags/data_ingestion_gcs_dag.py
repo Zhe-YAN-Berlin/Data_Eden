@@ -20,7 +20,7 @@ BUCKET = os.getenv("GCP_GCS_BUCKET")
 parquet_file = "yellow_tripdata_2023-01.parquet"
 parquet_url = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{parquet_file}"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/home/datatalks_jan/Data_Eden/3_airflow_demo/airflow_docker")
-BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all') 
+BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'demo_dataset') 
 
 
 # NOTE: takes 20 mins, at an upload speed of 800kbps. Faster if your internet has a better upload speed
@@ -39,10 +39,10 @@ def upload_to_gcs(bucket, object_name, local_file):
             storage.blob._DEFAULT_CHUNKSIZE = 5 * 1024 * 1024  # 5 MB
 
             client = storage.Client()
-            bucket = client.bucket(BUCKET)
+            bucket = client.bucket(bucket)
 
-            blob = bucket.blob(f"{parquet_file}")
-            blob.upload_from_filename(f"{path_to_local_home}/{parquet_file}")
+            blob = bucket.blob(object_name) 
+            blob.upload_from_filename(local_file) 
 
             print("upload sucess!")
 
