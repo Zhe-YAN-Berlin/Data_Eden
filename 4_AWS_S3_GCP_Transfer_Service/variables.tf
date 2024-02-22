@@ -33,5 +33,5 @@ variable "aws_access_key" {
 
 variable "aws_secret_key" {
   description = "aws secret key"
-  default     = "9lmsQwAiiXv9wJ3TQzkmcF0bancZ1Cm8ljcxIo5T"
+  default     = "XXXXXX"
 }
