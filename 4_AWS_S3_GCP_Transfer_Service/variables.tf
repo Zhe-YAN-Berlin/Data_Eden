@@ -28,7 +28,7 @@ variable "gcs_storage_class" {
 
 variable "aws_access_key" {
   description = "aws access key"
-  default     = "AKIAYS2NW7Y6XLXAE2M7"
+  default     = "AKIAYS2NW7XXXX"
 }
 
 variable "aws_secret_key" {
