@@ -59,7 +59,7 @@ x-airflow-common:
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
@@ -96,7 +96,7 @@ services:
       interval: 10s
       retries: 5
       start_period: 5s
-    restart: always
+    #restart: always
 
   redis:
     image: redis:latest
@@ -108,7 +108,7 @@ services:
       timeout: 30s
       retries: 50
       start_period: 30s
-    restart: always
+    #restart: always
 
   airflow-webserver:
     <<: *airflow-common
@@ -121,7 +121,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    restart: always
+    #restart: always
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
@@ -136,7 +136,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    restart: always
+    #restart: always
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
@@ -159,7 +159,7 @@ services:
       # Required to handle warm shutdown of the celery workers properly
       # See https://airflow.apache.org/docs/docker-stack/entrypoint.html#signal-propagation
       DUMB_INIT_SETSID: "0"
-    restart: always
+    #restart: always
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
@@ -174,7 +174,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    restart: always
+   #restart: always
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
@@ -273,7 +273,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    restart: always
+    #restart: always
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
