@@ -1,0 +1,48 @@
+{
+  "outputs": {
+    "predicted_tip_amount": {
+      "output_tensor_name": "compute:0"
+    }
+  },
+  "inputs": {
+    "fare_amount": {
+      "input_tensor_name": "fare_amount:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    },
+    "passenger_count": {
+      "input_tensor_name": "passenger_count:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    },
+    "tolls_amount": {
+      "input_tensor_name": "tolls_amount:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    },
+    "trip_distance": {
+      "input_tensor_name": "trip_distance:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    },
+    "DOLocationID": {
+      "input_tensor_name": "DOLocationID:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    },
+    "PULocationID": {
+      "input_tensor_name": "PULocationID:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    },
+    "payment_type": {
+      "input_tensor_name": "payment_type:0",
+      "encoding": "identity",
+      "modality": "numeric"
+    }
+  },
+  "framework": "Tensorflow",
+  "tags": [
+    "explainable_ai_sdk"
+  ]
+}
