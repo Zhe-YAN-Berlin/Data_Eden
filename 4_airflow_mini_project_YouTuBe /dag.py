@@ -13,8 +13,8 @@ args = {'owner': 'airflow'}
 dag = DAG('zhe_dag', default_args=args, schedule_interval='@hourly', start_date=datetime(2023, 11, 19))
 
 def task_1():
-
-    api_key = 'AIzaSyBQ9Pt_b5kOHWG2J7KnPvpRw7gXmefOLQ4'
+    # keep the key as private
+    api_key = 'AIzaSyBQ9Pt_XXXXXX'
 
     youtube = build('youtube', 'v3', developerKey=api_key)
 
