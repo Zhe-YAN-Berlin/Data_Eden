@@ -12,6 +12,12 @@ options = PipelineOptions()
 def process_row(row):
     return row
 
+# Custom DoFn to print a message
+class PrintMessage(beam.DoFn):
+    def process(self, element):
+        print("After reading from BigQuery...")
+        yield element
+
 # build beam
 with beam.Pipeline(options=options) as p:
     # read from BQ
@@ -29,9 +35,10 @@ with beam.Pipeline(options=options) as p:
     # process_row
     processed_rows = rows | 'Process data' >> beam.Map(process_row)
     
-    # output
-    processed_rows | 'Write to GCS' >> WriteToText(
-        file_path_prefix='gs://ml6-zhe-beam/output/output.txt',
-        num_shards=1,
-        shard_name_template=''
-    )
+    # Output
+    processed_rows | 'Print debug message' >> beam.ParDo(PrintMessage()) \
+                   | 'Write to GCS' >> WriteToText(
+                            file_path_prefix='gs://ml6-zhe-beam/output/output_0.txt',
+                            num_shards=1,
+                            shard_name_template=''
+                        )
