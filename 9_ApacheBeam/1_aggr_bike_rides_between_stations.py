@@ -15,18 +15,11 @@ def extract_columns(row):
 
 #   define function to count rental_id
 def count_rental_ids(start_n_end_station_id, counts):
-    start_station_id, end_station_id = start_end_station_id
+    start_station_id, end_station_id = start_n_end_station_id
     return start_station_id, end_station_id, sum(counts)
-
-# Custom DoFn to print a message
-class PrintMessage(beam.DoFn):
-    def process(self, element):
-        print("step finished...")
-        yield element
 
 # build beam pipeline
 with beam.Pipeline(options=options) as pipeline:
-    # read original data from BQ
     data =(
     pipeline
     | 'Read from BigQuery' >> beam.io.ReadFromBigQuery(
@@ -40,9 +33,10 @@ with beam.Pipeline(options=options) as pipeline:
     | 'Extract three target columns' >> beam.Map(extract_columns)
     | 'GroupBy 1st & 2nd cols' >> beam.GroupByKey()
     | 'count rental_id' >> beam.MapTuple(count_rental_ids)
+    | 'Sort rental_id' >> beam.combiners.Top.Largest(100, key=lambda x: x[2])
     )
 #   final output to GCS   #
     data | 'Write to GCS as text file' >> WriteToText(
-        file_path_prefix='gs://ml6-zhe-beam/output/output.txt',
+        file_path_prefix='gs://ml6-zhe-beam/output/output_task_1.txt',
         num_shards=1,
         shard_name_template='')   
