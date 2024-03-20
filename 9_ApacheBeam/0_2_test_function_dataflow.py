@@ -1,3 +1,4 @@
+import argparse
 import google
 import apache_beam as beam
 from apache_beam.io import WriteToText
@@ -6,7 +7,18 @@ import os
 
 # service acc 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/datatalks_jan/.google/credentials/google_credentials.json"
-options = PipelineOptions()
+
+# pipeline options 
+parser = argparse.ArgumentParser()
+args, beam_args = parser.parse_known_args()
+options = PipelineOptions(
+    beam_args,
+    runner = 'DataflowRunner',
+    project = 'my-zhe-414813',
+    job_name = 'ml6-task-test-00',
+    temp_location = 'gs://ml6-zhe-beam/temlpate',
+    region = 'us-west1'
+)
 
 # deal with every row
 def process_row(row):

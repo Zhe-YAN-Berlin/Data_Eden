@@ -11,6 +11,7 @@ python 0_2_test_function.py \
     --region us-west1 \
     --runner DataflowRunner \
     --staging_location gs://ml6-zhe-beam/staging
+    --temp_location gs://ml6-zhe-beam/temlpate
     --setup_file ./0_1_setup.py
 
 then on dataflow UI the pipeline task/job will be there 
