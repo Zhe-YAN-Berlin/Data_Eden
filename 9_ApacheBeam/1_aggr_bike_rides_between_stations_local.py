@@ -18,6 +18,11 @@ def count_rental_ids(start_n_end_station_id, counts):
     start_station_id, end_station_id = start_n_end_station_id
     return start_station_id, end_station_id, sum(counts)
 
+#   define function to format : untuple & newline
+def format_output(tup_data):
+    col_1, col_2, col_3 = tup_data
+    return f"{col_1}, {col_2}, {col_3}\n"
+
 # build beam pipeline
 with beam.Pipeline(options=options) as pipeline:
     data =(
@@ -34,9 +39,10 @@ with beam.Pipeline(options=options) as pipeline:
     | 'GroupBy 1st & 2nd cols' >> beam.GroupByKey()
     | 'count rental_id' >> beam.MapTuple(count_rental_ids)
     | 'Sort rental_id' >> beam.combiners.Top.Largest(100, key=lambda x: x[2])
+    | 'untuple & newline' >> beam.Map(lambda tup:format_output(tup))
     )
 #   final output to GCS   #
     data | 'Write to GCS as text file' >> WriteToText(
         file_path_prefix='gs://ml6-zhe-beam/output/output_task_1.txt',
         num_shards=1,
-        shard_name_template='')   
+        shard_name_template='') 
