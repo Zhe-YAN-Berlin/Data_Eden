@@ -3,10 +3,12 @@
     gcloud auth login 
 3 python command
 
-python 1_aggr_bike_rides_between_stations.py \
+test ->
+
+python 0_2_test_function.py \
     --project my-zhe-414813 \
-    --job_name ml6-task-1 \
-    --region us-central1 \
+    --job_name ml6-task-test-1 \
+    --region us-west1 \
     --runner DataflowRunner \
     --staging_location gs://ml6-zhe-beam/staging
     --setup_file ./0_1_setup.py
