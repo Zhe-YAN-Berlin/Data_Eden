@@ -16,7 +16,7 @@ def extract_columns(row):
 #   define function to count total distance of rides
 def count_total_distance(start_end_distance, counts):
     start_station_id, end_station_id, distance = start_end_distance
-    return start_station_id, end_station_id, sum(counts), distance*sum(counts)
+    return start_station_id, end_station_id, sum(counts), int(round(distance*sum(counts)/1000))
 
 #   define function to format : untuple & newline
 class FormatOutput(beam.DoFn):
@@ -54,6 +54,6 @@ with beam.Pipeline(options=options) as pipeline:
     )
 #   final output to GCS   #
     data | 'Write to GCS as text file' >> WriteToText(
-        file_path_prefix='gs://ml6-zhe-beam/output/output_task_2_0.txt',
+        file_path_prefix='gs://ml6-zhe-beam/output/output_task_2_1.txt',
         num_shards=1,
         shard_name_template='') 
