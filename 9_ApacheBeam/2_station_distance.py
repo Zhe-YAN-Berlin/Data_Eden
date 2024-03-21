@@ -16,7 +16,7 @@ def extract_columns(row):
 #   define function to count total distance of rides
 def count_total_distance(start_end_distance, counts):
     start_station_id, end_station_id, distance = start_end_distance
-    return start_station_id, end_station_id, distance*sum(counts)
+    return start_station_id, end_station_id, sum(counts), distance*sum(counts)
 
 #   define function to format : untuple & newline
 class FormatOutput(beam.DoFn):
@@ -49,7 +49,7 @@ with beam.Pipeline(options=options) as pipeline:
     | 'Extract four target columns' >> beam.Map(extract_columns)
     | 'GroupBy 1st & 2nd & 3rd cols' >> beam.GroupByKey()
     | 'count rental_id' >> beam.MapTuple(count_total_distance)
-    | 'Sort rental_id' >> beam.combiners.Top.Largest(100, key=lambda x: x[2])
+    | 'Sort rental_id' >> beam.combiners.Top.Largest(100, key=lambda x: x[3])
     | 'untuple & newline' >> beam.ParDo(FormatOutput())
     )
 #   final output to GCS   #
