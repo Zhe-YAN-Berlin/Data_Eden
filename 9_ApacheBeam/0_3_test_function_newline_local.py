@@ -21,11 +21,8 @@ def count_rental_ids(start_n_end_station_id, counts):
 #   define function to format : untuple & newline
 class FormatOutput(beam.DoFn):
     def process(self, element):
-        formatted_lines = []
-        for triple in element:
-            formatted_line = ",".join(str(i) for i in triple)
-            formatted_lines.append(formatted_line)
-        return formatted_lines
+        formatted_element = ", ".join(str(i) for i in element)
+        return [formatted_element + '\n']
 
 # build beam pipeline
 with beam.Pipeline(options=options) as pipeline:
@@ -39,9 +36,6 @@ with beam.Pipeline(options=options) as pipeline:
         use_standard_sql=True,
         project='my-zhe-414813',
         gcs_location='gs://ml6-zhe-beam/tmp')
-    #   | 'Filter None values' >> beam.Filter(lambda row: None not in row)  #tried, didn't work
-    | 'Filter non-null rows' >> beam.Filter(lambda row: all(value is not None for value in row.values()))
-    #   | 'Filter non-null rows' >> beam.Filter(lambda row: row['start_station_id'] is not None and row['end_station_id'] is not None) # tried, also worked
     | 'Extract three target columns' >> beam.Map(extract_columns)
     | 'GroupBy 1st & 2nd cols' >> beam.GroupByKey()
     | 'count rental_id' >> beam.MapTuple(count_rental_ids)
