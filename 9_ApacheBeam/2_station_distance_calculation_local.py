@@ -54,6 +54,6 @@ with beam.Pipeline(options=options) as pipeline:
     )
 ### [P4] final output to GCS   #
     data | 'Write to GCS as text file' >> WriteToText(
-        file_path_prefix='gs://ml6-zhe-beam/output/output_task_2_1.txt',
+        file_path_prefix='gs://ml6-zhe-beam/output/output_task_2_2.txt',
         num_shards=1,
         shard_name_template='') 
