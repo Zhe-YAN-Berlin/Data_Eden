@@ -4,7 +4,7 @@ from apache_beam.io import WriteToText
 from apache_beam.options.pipeline_options import PipelineOptions
 import os
 
-# service acc 
+### service acc 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/datatalks_jan/.google/credentials/google_credentials.json"
 options = PipelineOptions()
 
@@ -18,7 +18,7 @@ def count_total_distance(start_end_distance, counts):
     start_station_id, end_station_id, distance = start_end_distance
     return start_station_id, end_station_id, sum(counts), int(round(distance*sum(counts)/1000))
 
-#   define function to format : untuple & newline
+###   define function to format : untuple & newline
 class FormatOutput(beam.DoFn):
     def process(self, element):
         formatted_lines = []
@@ -27,7 +27,7 @@ class FormatOutput(beam.DoFn):
             formatted_lines.append(formatted_line)
         return formatted_lines
 
-# build beam pipeline
+### build beam pipeline
 with beam.Pipeline(options=options) as pipeline:
     data =(
     pipeline
@@ -52,7 +52,7 @@ with beam.Pipeline(options=options) as pipeline:
     | 'Sort rental_id' >> beam.combiners.Top.Largest(100, key=lambda x: x[3])
     | 'untuple & newline' >> beam.ParDo(FormatOutput())
     )
-#   final output to GCS   #
+###   final output to GCS   #
     data | 'Write to GCS as text file' >> WriteToText(
         file_path_prefix='gs://ml6-zhe-beam/output/output_task_2_1.txt',
         num_shards=1,
