@@ -4,7 +4,7 @@ from apache_beam.io import WriteToText
 from apache_beam.options.pipeline_options import PipelineOptions
 import os
 
-# service acc 
+### service acc 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/datatalks_jan/.google/credentials/google_credentials.json"
 options = PipelineOptions()
 
@@ -27,7 +27,7 @@ class FormatOutput(beam.DoFn):
             formatted_lines.append(formatted_line)
         return formatted_lines
 
-# build beam pipeline
+### build beam pipeline
 with beam.Pipeline(options=options) as pipeline:
     data =(
     pipeline
@@ -48,7 +48,7 @@ with beam.Pipeline(options=options) as pipeline:
     | 'Sort rental_id' >> beam.combiners.Top.Largest(100, key=lambda x: x[2])
     | 'untuple & newline' >> beam.ParDo(FormatOutput())
     )
-#   final output to GCS   #
+###   final output to GCS   #
     data | 'Write to GCS as text file' >> WriteToText(
         file_path_prefix='gs://ml6-zhe-beam/output/output_task_1.txt',
         num_shards=1,
