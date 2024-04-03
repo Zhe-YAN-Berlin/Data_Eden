@@ -117,7 +117,7 @@ def data_outbound_GCS():
     df_final.write.csv("gs://my-zhe-414813/conrad_output", mode="overwrite", header=True, inferSchema=True)
 
 default_args = {
-    'owner': 'zhe', #key!
+    'owner': 'airflow', #key!
     'depends_on_past': False,
     'start_date': datetime(2024, 4, 3),
     'email_on_failure': False,
