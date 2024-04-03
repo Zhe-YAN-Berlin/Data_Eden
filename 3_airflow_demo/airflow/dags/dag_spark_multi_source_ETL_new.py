@@ -75,7 +75,6 @@ def spark_etl_data():
     df_1_final = df_with_row_number.filter(col("row_number") == 1)
     df_1 = df_1_final.select("user_id","user_age","country","state","distribution_center_id","distribution_center_name","distance").orderBy("user_id")
 
-
     df_2_orders = spark.read.option("header", "true").csv(f'{output_path}/orders.csv')
     df_2_order_items = spark.read.option("header", "true").csv(f'{output_path}/order_items.csv')
 
