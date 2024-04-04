@@ -1,0 +1,76 @@
+[2024-04-04T11:53:05.158+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T11:51:45.837705+00:00 [queued]>
+[2024-04-04T11:53:05.170+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T11:51:45.837705+00:00 [queued]>
+[2024-04-04T11:53:05.171+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 2
+[2024-04-04T11:53:05.191+0000] {taskinstance.py:2217} INFO - Executing <Task(DockerOperator): task_2_spark> on 2024-04-04 11:51:45.837705+00:00
+[2024-04-04T11:53:05.204+0000] {standard_task_runner.py:60} INFO - Started process 137905 to run task
+[2024-04-04T11:53:05.212+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'conrad_coding_test', 'task_2_spark', 'manual__2024-04-04T11:51:45.837705+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/dag_spark_multi_source_test_docker.py', '--cfg-path', '/tmp/tmpn1ffgi7k']
+[2024-04-04T11:53:05.217+0000] {standard_task_runner.py:88} INFO - Job 15: Subtask task_2_spark
+[2024-04-04T11:53:05.293+0000] {task_command.py:423} INFO - Running <TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T11:51:45.837705+00:00 [running]> on host de-zoomcamp.us-central1-a.c.my-zhe-414813.internal
+[2024-04-04T11:53:05.373+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='conrad_coding_test' AIRFLOW_CTX_TASK_ID='task_2_spark' AIRFLOW_CTX_EXECUTION_DATE='2024-04-04T11:51:45.837705+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-04T11:51:45.837705+00:00'
+[2024-04-04T11:53:05.409+0000] {docker.py:359} INFO - Starting docker container from image sparkhome:latest
+[2024-04-04T11:53:05.950+0000] {docker.py:429} INFO - Unsetting extraneous env vars (UTC): 11:53:05
+[2024-04-04T11:53:05.952+0000] {docker.py:429} INFO - Finished unsetting extraneous env vars (UTC): 11:53:05
+[2024-04-04T11:53:05.956+0000] {docker.py:429} INFO - ++ id -u
+[2024-04-04T11:53:05.959+0000] {docker.py:429} INFO - + myuid=0
+[2024-04-04T11:53:05.960+0000] {docker.py:429} INFO - ++ id -g
+[2024-04-04T11:53:05.963+0000] {docker.py:429} INFO - + mygid=0
+[2024-04-04T11:53:05.963+0000] {docker.py:429} INFO - + set +e
+[2024-04-04T11:53:05.964+0000] {docker.py:429} INFO - ++ getent passwd 0
+[2024-04-04T11:53:05.967+0000] {docker.py:429} INFO - + uidentry=root:x:0:0:root:/root:/bin/bash
+[2024-04-04T11:53:05.967+0000] {docker.py:429} INFO - + set -e
+[2024-04-04T11:53:05.968+0000] {docker.py:429} INFO - + '[' -z root:x:0:0:root:/root:/bin/bash ']'
+[2024-04-04T11:53:05.969+0000] {docker.py:429} INFO - + SPARK_CLASSPATH=':/opt/spark/jars/*'
+[2024-04-04T11:53:05.970+0000] {docker.py:429} INFO - + env
+[2024-04-04T11:53:05.971+0000] {docker.py:429} INFO - + sed 's/[^=]*=\(.*\)/\1/g'
+[2024-04-04T11:53:05.973+0000] {docker.py:429} INFO - + sort -t_ -k4 -n
+[2024-04-04T11:53:05.974+0000] {docker.py:429} INFO - + grep SPARK_JAVA_OPT_
+[2024-04-04T11:53:05.978+0000] {docker.py:429} INFO - + readarray -t SPARK_EXECUTOR_JAVA_OPTS
+[2024-04-04T11:53:05.978+0000] {docker.py:429} INFO - + '[' -n '' ']'
+[2024-04-04T11:53:05.979+0000] {docker.py:429} INFO - + '[' -z ']'
+[2024-04-04T11:53:05.980+0000] {docker.py:429} INFO - + '[' -z ']'
+[2024-04-04T11:53:05.980+0000] {docker.py:429} INFO - + '[' -n '' ']'
+[2024-04-04T11:53:05.981+0000] {docker.py:429} INFO - + '[' -z ']'
+[2024-04-04T11:53:05.981+0000] {docker.py:429} INFO - + '[' -z ']'
+[2024-04-04T11:53:05.982+0000] {docker.py:429} INFO - + '[' -z x ']'
+[2024-04-04T11:53:05.982+0000] {docker.py:429} INFO - + SPARK_CLASSPATH='/opt/spark/conf::/opt/spark/jars/*'
+[2024-04-04T11:53:05.982+0000] {docker.py:429} INFO - + case "$1" in
+[2024-04-04T11:53:05.983+0000] {docker.py:429} INFO - + echo 'Non-spark-on-k8s command provided, proceeding in pass-through mode...'
+[2024-04-04T11:53:05.983+0000] {docker.py:429} INFO - Non-spark-on-k8s command provided, proceeding in pass-through mode...
+[2024-04-04T11:53:05.983+0000] {docker.py:429} INFO - + CMD=("$@")
+[2024-04-04T11:53:05.984+0000] {docker.py:429} INFO - + exec /usr/bin/tini -s -- python /opt/spark/etl_task_2.py
+[2024-04-04T11:53:09.706+0000] {docker.py:429} INFO - WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/spark/jars/spark-unsafe_2.12-3.2.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[2024-04-04T11:53:09.706+0000] {docker.py:429} INFO - 
+[2024-04-04T11:53:10.432+0000] {docker.py:429} INFO - Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+[2024-04-04T11:53:10.433+0000] {docker.py:429} INFO - Setting default log level to "
+[2024-04-04T11:53:10.434+0000] {docker.py:429} INFO - WARN".
+[2024-04-04T11:53:10.434+0000] {docker.py:429} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2024-04-04T11:53:10.934+0000] {docker.py:429} INFO - 24/04/04 11:53:10 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-04-04T11:53:14.386+0000] {docker.py:429} INFO - Traceback (most recent call last):
+  File "/opt/spark/etl_task_2.py", line 17, in <module>
+    df_1_users = spark.read.option("header", "true").csv('/mount_data/users.csv')
+NameError: name 'spark' is not defined
+[2024-04-04T11:53:14.794+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 502, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 364, in _run_image
+    return self._run_image_with_mounts([*self.mounts, tmp_mount], add_tmp_variable=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 437, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2024-04-04T11:53:14.809+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=conrad_coding_test, task_id=task_2_spark, execution_date=20240404T115145, start_date=20240404T115305, end_date=20240404T115314
+[2024-04-04T11:53:14.835+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 15 for task task_2_spark (Docker container failed: {'StatusCode': 1}; 137905)
+[2024-04-04T11:53:14.885+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-04-04T11:53:14.914+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

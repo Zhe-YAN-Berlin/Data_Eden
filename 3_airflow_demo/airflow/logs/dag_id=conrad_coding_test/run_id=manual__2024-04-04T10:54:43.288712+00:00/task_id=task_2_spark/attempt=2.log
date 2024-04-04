@@ -1,0 +1,42 @@
+[2024-04-04T10:59:54.402+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T10:54:43.288712+00:00 [queued]>
+[2024-04-04T10:59:54.409+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T10:54:43.288712+00:00 [queued]>
+[2024-04-04T10:59:54.410+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 2
+[2024-04-04T10:59:54.428+0000] {taskinstance.py:2217} INFO - Executing <Task(DockerOperator): task_2_spark> on 2024-04-04 10:54:43.288712+00:00
+[2024-04-04T10:59:54.437+0000] {standard_task_runner.py:60} INFO - Started process 126171 to run task
+[2024-04-04T10:59:54.449+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'conrad_coding_test', 'task_2_spark', 'manual__2024-04-04T10:54:43.288712+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/dag_spark_multi_source_test_docker.py', '--cfg-path', '/tmp/tmpv463bavg']
+[2024-04-04T10:59:54.454+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask task_2_spark
+[2024-04-04T10:59:54.525+0000] {task_command.py:423} INFO - Running <TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T10:54:43.288712+00:00 [running]> on host de-zoomcamp.us-central1-a.c.my-zhe-414813.internal
+[2024-04-04T10:59:54.591+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='conrad_coding_test' AIRFLOW_CTX_TASK_ID='task_2_spark' AIRFLOW_CTX_EXECUTION_DATE='2024-04-04T10:54:43.288712+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-04T10:54:43.288712+00:00'
+[2024-04-04T10:59:54.627+0000] {docker.py:486} INFO - Pulling docker image 41986e0be0c1:latest
+[2024-04-04T10:59:55.100+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/client.py", line 265, in _raise_for_status
+    response.raise_for_status()
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http+docker://localhost/v1.43/images/create?tag=latest&fromImage=41986e0be0c1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 488, in execute
+    for output in self.cli.pull(self.image, stream=True, decode=True):
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/image.py", line 429, in pull
+    self._raise_for_status(response)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/client.py", line 267, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.ImageNotFound: 404 Client Error for http+docker://localhost/v1.43/images/create?tag=latest&fromImage=41986e0be0c1: Not Found ("pull access denied for 41986e0be0c1, repository does not exist or may require 'docker login': denied: requested access to the resource is denied")
+[2024-04-04T10:59:55.109+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=conrad_coding_test, task_id=task_2_spark, execution_date=20240404T105443, start_date=20240404T105954, end_date=20240404T105955
+[2024-04-04T10:59:55.124+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 9 for task task_2_spark (404 Client Error for http+docker://localhost/v1.43/images/create?tag=latest&fromImage=41986e0be0c1: Not Found ("pull access denied for 41986e0be0c1, repository does not exist or may require 'docker login': denied: requested access to the resource is denied"); 126171)
+[2024-04-04T10:59:55.143+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-04-04T10:59:55.159+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

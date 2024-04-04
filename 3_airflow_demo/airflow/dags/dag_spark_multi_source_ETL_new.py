@@ -42,8 +42,9 @@ with DAG('conrad_coding', default_args=default_args, schedule_interval='@weekly'
 
     task_2_spark = DockerOperator(
         task_id='task_2_spark',
-        image = 'cb004f06511d:latest',
-        command='spark-submit /opt/spark/sparkETL.py',
+        image = '41986e0be0c1:latest',
+        command='python /opt/spark/etl_task_2.py',
+        docker_url='unix://var/run/docker.sock',
         dag=dag
     )
 
