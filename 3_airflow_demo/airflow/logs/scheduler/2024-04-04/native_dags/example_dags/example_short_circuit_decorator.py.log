@@ -1020,3 +1020,10 @@
 [2024-04-04T12:33:37.142+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:33:37.142+0000] {dag.py:3047} INFO - Sync 1 DAGs
 [2024-04-04T12:33:37.169+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:33:37.169+0000] {dag.py:3834} INFO - Setting next_dagrun for example_short_circuit_decorator to 2024-04-03 00:00:00+00:00, run_after=2024-04-04 00:00:00+00:00
 [2024-04-04T12:33:37.197+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/example_dags/example_short_circuit_decorator.py took 0.152 seconds
+[2024-04-04T12:34:25.674+0000] {processor.py:161} INFO - Started process (PID=150125) to work on /home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/example_dags/example_short_circuit_decorator.py
+[2024-04-04T12:34:25.676+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/example_dags/example_short_circuit_decorator.py for tasks to queue
+[2024-04-04T12:34:25.678+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:34:25.677+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/example_dags/example_short_circuit_decorator.py
+[2024-04-04T12:34:25.696+0000] {processor.py:840} INFO - DAG(s) 'example_short_circuit_decorator' retrieved from /home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/example_dags/example_short_circuit_decorator.py
+[2024-04-04T12:34:25.728+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:34:25.727+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T12:34:25.755+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:34:25.754+0000] {dag.py:3834} INFO - Setting next_dagrun for example_short_circuit_decorator to 2024-04-03 00:00:00+00:00, run_after=2024-04-04 00:00:00+00:00
+[2024-04-04T12:34:25.785+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/example_dags/example_short_circuit_decorator.py took 0.118 seconds

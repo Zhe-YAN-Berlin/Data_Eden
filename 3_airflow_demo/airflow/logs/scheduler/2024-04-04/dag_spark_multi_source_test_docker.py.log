@@ -986,3 +986,18 @@ Traceback (most recent call last):
 NameError: name 'Mount' is not defined
 [2024-04-04T12:33:36.797+0000] {processor.py:842} WARNING - No viable dags retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py
 [2024-04-04T12:33:36.827+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py took 0.268 seconds
+[2024-04-04T12:34:24.301+0000] {processor.py:161} INFO - Started process (PID=150124) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py
+[2024-04-04T12:34:24.303+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py for tasks to queue
+[2024-04-04T12:34:24.305+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:34:24.304+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py
+[2024-04-04T12:34:24.532+0000] {logging_mixin.py:188} INFO - [2024-04-04T12:34:24.530+0000] {dagbag.py:350} ERROR - Failed to import: /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py", line 37, in <module>
+    Mount(source='/home/datatalks_jan/Data_Eden/8_pySpark_pilot/source_data/multi_source_data', target='/opt/spark/mount_data')
+    ^^^^^
+NameError: name 'Mount' is not defined
+[2024-04-04T12:34:24.533+0000] {processor.py:842} WARNING - No viable dags retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py
+[2024-04-04T12:34:24.558+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py took 0.263 seconds
