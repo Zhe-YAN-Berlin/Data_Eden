@@ -1,0 +1,31 @@
+[2024-04-04T13:55:47.132+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conrad_coding_test.task_3_data_output manual__2024-04-04T13:53:41.615420+00:00 [queued]>
+[2024-04-04T13:55:47.139+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conrad_coding_test.task_3_data_output manual__2024-04-04T13:53:41.615420+00:00 [queued]>
+[2024-04-04T13:55:47.139+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-04-04T13:55:47.159+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): task_3_data_output> on 2024-04-04 13:53:41.615420+00:00
+[2024-04-04T13:55:47.166+0000] {standard_task_runner.py:60} INFO - Started process 164664 to run task
+[2024-04-04T13:55:47.173+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'conrad_coding_test', 'task_3_data_output', 'manual__2024-04-04T13:53:41.615420+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/dag_spark_multi_source_test_docker.py', '--cfg-path', '/tmp/tmp4gbsyh39']
+[2024-04-04T13:55:47.176+0000] {standard_task_runner.py:88} INFO - Job 43: Subtask task_3_data_output
+[2024-04-04T13:55:47.225+0000] {task_command.py:423} INFO - Running <TaskInstance: conrad_coding_test.task_3_data_output manual__2024-04-04T13:53:41.615420+00:00 [running]> on host de-zoomcamp.us-central1-a.c.my-zhe-414813.internal
+[2024-04-04T13:55:47.290+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='conrad_coding_test' AIRFLOW_CTX_TASK_ID='task_3_data_output' AIRFLOW_CTX_EXECUTION_DATE='2024-04-04T13:53:41.615420+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-04T13:53:41.615420+00:00'
+[2024-04-04T13:55:47.299+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_test_docker.py", line 21, in data_outbound_GCS
+    with open("gs://my-zhe-414813/conrad_output/file.txt", "w") as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'gs://my-zhe-414813/conrad_output/file.txt'
+[2024-04-04T13:55:47.306+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=conrad_coding_test, task_id=task_3_data_output, execution_date=20240404T135341, start_date=20240404T135547, end_date=20240404T135547
+[2024-04-04T13:55:47.318+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 43 for task task_3_data_output ([Errno 2] No such file or directory: 'gs://my-zhe-414813/conrad_output/file.txt'; 164664)
+[2024-04-04T13:55:47.347+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-04-04T13:55:47.362+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

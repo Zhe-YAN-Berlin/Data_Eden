@@ -1,0 +1,56 @@
+[2024-04-04T13:33:16.973+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T13:33:11.885627+00:00 [queued]>
+[2024-04-04T13:33:16.979+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T13:33:11.885627+00:00 [queued]>
+[2024-04-04T13:33:16.979+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-04-04T13:33:16.996+0000] {taskinstance.py:2217} INFO - Executing <Task(DockerOperator): task_2_spark> on 2024-04-04 13:33:11.885627+00:00
+[2024-04-04T13:33:17.006+0000] {standard_task_runner.py:60} INFO - Started process 159058 to run task
+[2024-04-04T13:33:17.017+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'conrad_coding_test', 'task_2_spark', 'manual__2024-04-04T13:33:11.885627+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/dag_spark_multi_source_test_docker.py', '--cfg-path', '/tmp/tmpavn5iele']
+[2024-04-04T13:33:17.022+0000] {standard_task_runner.py:88} INFO - Job 32: Subtask task_2_spark
+[2024-04-04T13:33:17.089+0000] {task_command.py:423} INFO - Running <TaskInstance: conrad_coding_test.task_2_spark manual__2024-04-04T13:33:11.885627+00:00 [running]> on host de-zoomcamp.us-central1-a.c.my-zhe-414813.internal
+[2024-04-04T13:33:17.163+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='conrad_coding_test' AIRFLOW_CTX_TASK_ID='task_2_spark' AIRFLOW_CTX_EXECUTION_DATE='2024-04-04T13:33:11.885627+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-04T13:33:11.885627+00:00'
+[2024-04-04T13:33:17.261+0000] {docker.py:359} INFO - Starting docker container from image sparkhome:latest
+[2024-04-04T13:33:17.821+0000] {docker.py:429} INFO - Unsetting extraneous env vars (UTC): 13:33:17
+[2024-04-04T13:33:17.837+0000] {docker.py:429} INFO - Finished unsetting extraneous env vars (UTC): 13:33:17
+[2024-04-04T13:33:17.842+0000] {docker.py:429} INFO - ++ id -u
+[2024-04-04T13:33:17.850+0000] {docker.py:429} INFO - + myuid=0
+[2024-04-04T13:33:17.851+0000] {docker.py:429} INFO - ++ id -g
+[2024-04-04T13:33:17.853+0000] {docker.py:429} INFO - + mygid=0
+[2024-04-04T13:33:17.853+0000] {docker.py:429} INFO - + set +e
+[2024-04-04T13:33:17.853+0000] {docker.py:429} INFO - ++ getent passwd 0
+[2024-04-04T13:33:17.856+0000] {docker.py:429} INFO - + uidentry=root:x:0:0:root:/root:/bin/bash
++ set -e
+[2024-04-04T13:33:17.859+0000] {docker.py:429} INFO - + '[' -z root:x:0:0:root:/root:/bin/bash ']'
+[2024-04-04T13:33:17.859+0000] {docker.py:429} INFO - + SPARK_CLASSPATH=':/opt/spark/jars/*'
+[2024-04-04T13:33:17.860+0000] {docker.py:429} INFO - + env
+[2024-04-04T13:33:17.860+0000] {docker.py:429} INFO - + sort -t_ -k4 -n
+[2024-04-04T13:33:17.860+0000] {docker.py:429} INFO - + sed 's/[^=]*=\(.*\)/\1/g'
+[2024-04-04T13:33:17.861+0000] {docker.py:429} INFO - + grep SPARK_JAVA_OPT_
+[2024-04-04T13:33:17.867+0000] {docker.py:429} INFO - + readarray -t SPARK_EXECUTOR_JAVA_OPTS
+[2024-04-04T13:33:17.867+0000] {docker.py:429} INFO - + '[' -n '' ']'
++ '[' -z ']'
++ '[' -z ']'
++ '[' -n '' ']'
++ '[' -z ']'
+[2024-04-04T13:33:17.868+0000] {docker.py:429} INFO - + '[' -z ']'
+[2024-04-04T13:33:17.868+0000] {docker.py:429} INFO - Non-spark-on-k8s command provided, proceeding in pass-through mode...
+[2024-04-04T13:33:17.869+0000] {docker.py:429} INFO - + '[' -z x ']'
++ SPARK_CLASSPATH='/opt/spark/conf::/opt/spark/jars/*'
++ case "$1" in
++ echo 'Non-spark-on-k8s command provided, proceeding in pass-through mode...'
++ CMD=("$@")
++ exec /usr/bin/tini -s -- python /opt/spark/etl_task_2.py
+[2024-04-04T13:33:21.467+0000] {docker.py:429} INFO - WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/spark/jars/spark-unsafe_2.12-3.2.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[2024-04-04T13:33:21.468+0000] {docker.py:429} INFO - 
+[2024-04-04T13:33:22.066+0000] {docker.py:429} INFO - Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+[2024-04-04T13:33:22.066+0000] {docker.py:429} INFO - Setting default log level to "
+[2024-04-04T13:33:22.067+0000] {docker.py:429} INFO - WARN".
+[2024-04-04T13:33:22.068+0000] {docker.py:429} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2024-04-04T13:33:22.457+0000] {docker.py:429} INFO - 24/04/04 13:33:22 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-04-04T13:33:35.077+0000] {docker.py:429} INFO - [Stage 0:>                                                          (0 + 1) / 1]
+[2024-04-04T13:33:35.348+0000] {docker.py:429} INFO - 
+[2024-04-04T13:33:40.866+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=conrad_coding_test, task_id=task_2_spark, execution_date=20240404T133311, start_date=20240404T133316, end_date=20240404T133340
+[2024-04-04T13:33:40.921+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-04-04T13:33:40.939+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
