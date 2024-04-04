@@ -1,0 +1,126 @@
+[2024-04-04T00:13:40.159+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conrad_coding.task_2_spark manual__2024-04-04T00:13:34.681162+00:00 [queued]>
+[2024-04-04T00:13:40.166+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conrad_coding.task_2_spark manual__2024-04-04T00:13:34.681162+00:00 [queued]>
+[2024-04-04T00:13:40.166+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-04-04T00:13:40.183+0000] {taskinstance.py:2217} INFO - Executing <Task(DockerOperator): task_2_spark> on 2024-04-04 00:13:34.681162+00:00
+[2024-04-04T00:13:40.195+0000] {standard_task_runner.py:60} INFO - Started process 102571 to run task
+[2024-04-04T00:13:40.209+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'conrad_coding', 'task_2_spark', 'manual__2024-04-04T00:13:34.681162+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_spark_multi_source_ETL_new.py', '--cfg-path', '/tmp/tmpa0gehffz']
+[2024-04-04T00:13:40.214+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask task_2_spark
+[2024-04-04T00:13:40.287+0000] {task_command.py:423} INFO - Running <TaskInstance: conrad_coding.task_2_spark manual__2024-04-04T00:13:34.681162+00:00 [running]> on host de-zoomcamp.us-central1-a.c.my-zhe-414813.internal
+[2024-04-04T00:13:40.373+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='conrad_coding' AIRFLOW_CTX_TASK_ID='task_2_spark' AIRFLOW_CTX_EXECUTION_DATE='2024-04-04T00:13:34.681162+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-04T00:13:34.681162+00:00'
+[2024-04-04T00:13:40.389+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1286, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1332, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1281, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1041, in _send_output
+    self.send(msg)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 979, in send
+    self.connect()
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/transport/unixconn.py", line 27, in connect
+    sock.connect(self.unix_socket)
+PermissionError: [Errno 13] Permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1286, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1332, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1281, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 1041, in _send_output
+    self.send(msg)
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/http/client.py", line 979, in send
+    self.connect()
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/transport/unixconn.py", line 27, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/client.py", line 213, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+                        ^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/utils/decorators.py", line 44, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/client.py", line 236, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 485, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 355, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/functools.py", line 1001, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/airflow/providers/docker/hooks/docker.py", line 149, in api_client
+    client = APIClient(
+             ^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/client.py", line 197, in __init__
+    self._version = self._retrieve_server_version()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/datatalks_jan/anaconda3/lib/python3.11/site-packages/docker/api/client.py", line 220, in _retrieve_server_version
+    raise DockerException(
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+[2024-04-04T00:13:40.406+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=conrad_coding, task_id=task_2_spark, execution_date=20240404T001334, start_date=20240404T001340, end_date=20240404T001340
+[2024-04-04T00:13:40.420+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task task_2_spark (Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied')); 102571)
+[2024-04-04T00:13:40.462+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-04-04T00:13:40.486+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

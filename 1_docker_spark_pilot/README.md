@@ -13,7 +13,7 @@ sudo docker run -p 8888:8888 --name spark -d --volume /home/datatalks_jan/Data_E
 
 sudo docker images
 sudo docker ps
-sudo docker stop 76a371e2dcdb
+sudo docker stop 89ff12f39446
 sudo docker rm 76a371e2dcdb
 sudo docker rmi 7aa24d839e9d
 
