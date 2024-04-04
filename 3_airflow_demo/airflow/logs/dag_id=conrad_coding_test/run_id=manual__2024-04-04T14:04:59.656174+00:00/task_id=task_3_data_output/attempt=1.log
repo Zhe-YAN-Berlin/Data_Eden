@@ -1,0 +1,13 @@
+[2024-04-04T14:05:47.972+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: conrad_coding_test.task_3_data_output manual__2024-04-04T14:04:59.656174+00:00 [queued]>
+[2024-04-04T14:05:47.980+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: conrad_coding_test.task_3_data_output manual__2024-04-04T14:04:59.656174+00:00 [queued]>
+[2024-04-04T14:05:47.981+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-04-04T14:05:47.995+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): task_3_data_output> on 2024-04-04 14:04:59.656174+00:00
+[2024-04-04T14:05:48.003+0000] {standard_task_runner.py:60} INFO - Started process 168357 to run task
+[2024-04-04T14:05:48.010+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'conrad_coding_test', 'task_3_data_output', 'manual__2024-04-04T14:04:59.656174+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/dag_spark_multi_source_test_docker.py', '--cfg-path', '/tmp/tmpcyef2q0w']
+[2024-04-04T14:05:48.014+0000] {standard_task_runner.py:88} INFO - Job 53: Subtask task_3_data_output
+[2024-04-04T14:05:48.059+0000] {task_command.py:423} INFO - Running <TaskInstance: conrad_coding_test.task_3_data_output manual__2024-04-04T14:04:59.656174+00:00 [running]> on host de-zoomcamp.us-central1-a.c.my-zhe-414813.internal
+[2024-04-04T14:05:48.117+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='conrad_coding_test' AIRFLOW_CTX_TASK_ID='task_3_data_output' AIRFLOW_CTX_EXECUTION_DATE='2024-04-04T14:04:59.656174+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-04T14:04:59.656174+00:00'
+[2024-04-04T14:05:48.439+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-04-04T14:05:48.444+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=conrad_coding_test, task_id=task_3_data_output, execution_date=20240404T140459, start_date=20240404T140547, end_date=20240404T140548
+[2024-04-04T14:05:48.503+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-04-04T14:05:48.517+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

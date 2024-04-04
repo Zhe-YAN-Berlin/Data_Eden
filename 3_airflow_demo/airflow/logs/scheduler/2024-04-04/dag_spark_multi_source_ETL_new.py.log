@@ -2035,3 +2035,45 @@ airflow.exceptions.DuplicateTaskIdFound: Task id 'task_2_spark' has already been
 [2024-04-04T14:04:41.429+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:04:41.429+0000] {dag.py:3047} INFO - Sync 1 DAGs
 [2024-04-04T14:04:41.449+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:04:41.449+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
 [2024-04-04T14:04:41.470+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.465 seconds
+[2024-04-04T14:05:56.526+0000] {processor.py:161} INFO - Started process (PID=168437) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:05:56.528+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py for tasks to queue
+[2024-04-04T14:05:56.530+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:05:56.529+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:05:56.998+0000] {processor.py:840} INFO - DAG(s) 'conrad_coding' retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:05:57.013+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:05:57.012+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T14:05:57.033+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:05:57.032+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
+[2024-04-04T14:05:57.055+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.535 seconds
+[2024-04-04T14:06:47.557+0000] {processor.py:161} INFO - Started process (PID=168510) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:06:47.561+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py for tasks to queue
+[2024-04-04T14:06:47.562+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:06:47.561+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:06:47.946+0000] {processor.py:840} INFO - DAG(s) 'conrad_coding' retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:06:47.960+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:06:47.959+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T14:06:47.979+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:06:47.979+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
+[2024-04-04T14:06:48.001+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.450 seconds
+[2024-04-04T14:07:44.162+0000] {processor.py:161} INFO - Started process (PID=168564) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:07:44.165+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py for tasks to queue
+[2024-04-04T14:07:44.166+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:07:44.166+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:07:44.353+0000] {processor.py:840} INFO - DAG(s) 'conrad_coding' retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:07:44.376+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:07:44.375+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T14:07:44.401+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:07:44.401+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
+[2024-04-04T14:07:44.431+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.274 seconds
+[2024-04-04T14:08:33.202+0000] {processor.py:161} INFO - Started process (PID=168671) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:08:33.205+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py for tasks to queue
+[2024-04-04T14:08:33.206+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:08:33.205+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:08:33.391+0000] {processor.py:840} INFO - DAG(s) 'conrad_coding' retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:08:33.414+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:08:33.413+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T14:08:33.439+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:08:33.438+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
+[2024-04-04T14:08:33.466+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.270 seconds
+[2024-04-04T14:09:28.652+0000] {processor.py:161} INFO - Started process (PID=168762) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:09:28.654+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py for tasks to queue
+[2024-04-04T14:09:28.656+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:09:28.655+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:09:28.842+0000] {processor.py:840} INFO - DAG(s) 'conrad_coding' retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:09:28.868+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:09:28.866+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T14:09:28.894+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:09:28.893+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
+[2024-04-04T14:09:28.921+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.275 seconds
+[2024-04-04T14:10:18.544+0000] {processor.py:161} INFO - Started process (PID=168812) to work on /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:10:18.546+0000] {processor.py:830} INFO - Processing file /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py for tasks to queue
+[2024-04-04T14:10:18.547+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:10:18.547+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:10:18.726+0000] {processor.py:840} INFO - DAG(s) 'conrad_coding' retrieved from /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py
+[2024-04-04T14:10:18.746+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:10:18.746+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-04-04T14:10:18.769+0000] {logging_mixin.py:188} INFO - [2024-04-04T14:10:18.768+0000] {dag.py:3834} INFO - Setting next_dagrun for conrad_coding to 2024-04-07 00:00:00+00:00, run_after=2024-04-14 00:00:00+00:00
+[2024-04-04T14:10:18.794+0000] {processor.py:183} INFO - Processing /home/datatalks_jan/Data_Eden/3_airflow_demo/airflow/dags/dag_spark_multi_source_ETL_new.py took 0.255 seconds
