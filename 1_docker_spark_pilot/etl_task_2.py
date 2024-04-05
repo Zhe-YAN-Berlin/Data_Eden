@@ -82,12 +82,18 @@ df_3_product_price = spark.read.option("header", "true").csv('/opt/spark/mount_d
 df_3_product_price = df_3_product_price.select("id", "cost")
 df_3_product_price.createOrReplaceTempView("product_price")
 
-df_3 = spark.sql("""
+df_3_profit = spark.sql("""
     SELECT user_id, SUM(T1.sale_price - T2.cost) as profit_total
     FROM  order_details AS T1
     LEFT JOIN product_price AS T2 ON T2.id = T1.product_id
     GROUP BY user_id
 """)
+
+df_3 = df_3_profit.withColumn('level',
+when(df['profit'] < 50, '1')
+.when((df['profit'] >= 50) & (df['profit'] <= 150), '2')
+.when(df['profit'] > 150, '3')
+)
 
 df_final = df_1.join(df_2, "user_id").join(df_3, "user_id")
 df_final = df_final.select("user_id","user_age","country","state","distribution_center_id","distribution_center_name","product_return_rate","profit_total")
