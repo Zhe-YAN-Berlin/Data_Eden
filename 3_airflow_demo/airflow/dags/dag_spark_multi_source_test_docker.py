@@ -19,11 +19,11 @@ def download_and_unzip_data():
 
 def data_outbound_GCS(ti):
     df_str = ti.xcom_pull(task_ids='task_2_spark')
-    with open("/home/datatalks_jan/Data_Eden/8_pySpark_pilot/source_data/output/file.txt", "w") as file:
+    with open("/home/datatalks_jan/Data_Eden/8_pySpark_pilot/source_data/output/user_data.csv", "w") as file:
         file.write(df_str[0])
-    local_file_path = '/home/datatalks_jan/Data_Eden/8_pySpark_pilot/source_data/output/file.txt'
+    local_file_path = '/home/datatalks_jan/Data_Eden/8_pySpark_pilot/source_data/output/user_data.csv'
     gcs_bucket_name = 'my-zhe-414813'
-    gcs_file_path = 'conrad_output/file.txt'
+    gcs_file_path = 'conrad_output/user_data.csv'
     client = storage.Client()
     bucket = client.get_bucket(gcs_bucket_name)
     blob = bucket.blob(gcs_file_path)

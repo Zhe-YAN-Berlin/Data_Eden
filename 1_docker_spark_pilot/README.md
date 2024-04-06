@@ -1,10 +1,3 @@
-https://hub.docker.com/r/datamechanics/spark
-
-https://developershome.blog/2023/01/29/deploy-spark-using-docker/
-
-https://www.youtube.com/watch?v=WSfVEOsLTD8
-
-
 sudo docker build . -t sparkhome
 sudo docker image ls
 # this docker only built by myself PLUS mounted files but dockerOperator will NOT leverage this docker, but create another one
@@ -34,3 +27,8 @@ sudo service docker status
 pkill -9 -f "airflow scheduler" 
 pkill -9 -f "airflow webserver" 
 pkill -9 -f "gunicorn"
+
+
+https://hub.docker.com/r/datamechanics/spark
+https://developershome.blog/2023/01/29/deploy-spark-using-docker/
+https://www.youtube.com/watch?v=WSfVEOsLTD8
