@@ -4,6 +4,7 @@ WORKDIR /app
 ENV DEBIAN_FRONTEND=noninteractive
 ENV MODULE_NAME=app 
 
-RUN pip install fastapi uvicorn sklearn
+#change to <scikit-learn> to replace <sklearn>
+RUN pip install fastapi uvicorn scikit-learn 
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5000"]
