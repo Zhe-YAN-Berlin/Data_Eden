@@ -1,4 +1,10 @@
 version: '2'
+# add network to combine with spark later on
+#networks:
+#  kafka-spark-network:
+#    external:
+#      name: kafka-spark-network
+
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -55,3 +61,14 @@ services:
       - data-streaming-service
     volumes:
       - ./listener-service/:/app
+
+  spark-service:
+    build: spark-service
+    hostname: spark-service
+    container_name: spark-service
+    depends_on:
+      - kafka
+      - data-streaming-service
+      - classification-service
+    volumes:
+      - ./spark-service/:/app
