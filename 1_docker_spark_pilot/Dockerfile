@@ -4,11 +4,14 @@ USER root
 
 WORKDIR /opt/spark
 
+# download Kafka connector JAR files to Spark jars folders
+RUN wget -O /opt/spark/jars/spark-sql-kafka-0-10_2.12-3.2.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.2.1/spark-sql-kafka-0-10_2.12-3.2.1.jar
+
 RUN pip install --upgrade pip
 
 COPY  requirements.txt .
 RUN pip3 install -r requirements.txt
 
-COPY etl_task_2.py .
+#COPY etl_task_2.py .
 
 CMD jupyter-lab --allow-root --no-browser --ip=0.0.0.0

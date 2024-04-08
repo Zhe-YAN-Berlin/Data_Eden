@@ -4,10 +4,9 @@ docker network ls
 sudo docker build . -t spark4kafka_image
 sudo docker image ls
 # this docker only built by myself PLUS mounted files but dockerOperator will NOT leverage this docker, but create another one
-sudo docker run -p 8888:8888 --network 11_kafka_analytics_projects_default --name spark4kafka -d 4d983c5d24f8 sleep infinity
+sudo docker run -p 8888:8888 --network 11_kafka_analytics_projects_default --name spark4kafka -d 35d8ecd5f78c sleep infinity
 sudo docker ps
 sudo docker inspect 8e9bb82ef0ac
-docket 
 
 sudo docker images
 sudo docker stop c69432811c9a 748682c87c24 2a0fa24c73a1 fbb7a2c0574e 2cd11c89a8b4
@@ -17,7 +16,13 @@ sudo docker rmi f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 sudo docker network rm f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 
 # enter docker bash
-sudo docker exec -it 6b6ccd749921 /bin/bash
+sudo docker exec -it ad408ee9757c /bin/bash
+# check logs 
+sudo docker logs 0dfe943d8a60
+# get jupyter lab  !!
+jupyter lab --ip='0.0.0.0' --port=8888 --no-browser --allow-root
+
+
 python3 kafka_consumer.py
 
 cd /home/sparkuser/.local/share/jupyter/runtime
@@ -33,11 +38,6 @@ curl -X 'POST' \
   -d '{
   "text": "Frodo felt a  strange certainty that in this matter Gollum was for once  not so far from the truth as might be suspected; that he had somehow found a  way out of Mordor, and at least believed that it was by his own cunning. For   one thing,  he noted  that Gollum used  I, and that  seemed usually to be  a   sign, on its rare appearances. that some remnants of old truth and sincerity  were  for  the moment on top. But even  if Gollum  could  be trusted on this  point, Frodo did not forget the wiles  of the  Enemy"
 }'
-
-# check logs 
-sudo docker logs 0dfe943d8a60
-# get jupyter lab  !!
-jupyter lab --ip='0.0.0.0' --port=8877 --no-browser --allow-root
 
 # check docker sock program 
 sudo service docker status
@@ -57,3 +57,8 @@ a container named listener-service will be spun up solely to allow exploration o
 docker-compose exec listener-service bash
 and start the following process: 
 python3 kafka_consumer.py.
+
+which java
+java --version
+spark-shell
+pyspark --version
