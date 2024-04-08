@@ -1,16 +1,57 @@
-sudo docker build . -t kafka_events_image
+docker network create kafka-spark-network
+docker network ls
+
+sudo docker build . -t spark4kafka_image
 sudo docker image ls
-sudo docker run -p 8888:8888 --name kafka_events_docker -d 4d983c5d24f8
+# this docker only built by myself PLUS mounted files but dockerOperator will NOT leverage this docker, but create another one
+sudo docker run -p 8888:8888 --network 11_kafka_analytics_projects_default --name spark4kafka -d 4d983c5d24f8 sleep infinity
+sudo docker ps
+sudo docker inspect 8e9bb82ef0ac
+docket 
 
-sudo docker ps -a
+sudo docker images
+sudo docker stop c69432811c9a 748682c87c24 2a0fa24c73a1 fbb7a2c0574e 2cd11c89a8b4
 
-sudo docker logs 7f2ee5c7dcdf
-sudo docker stop 1dcc49355ef2 e29eec979c79 aeddc49d34cc a0946a1f8a53 a971c2ee6540
-sudo docker rm 1dcc49355ef2 e29eec979c79 aeddc49d34cc a0946a1f8a53 a971c2ee6540
+sudo docker rm 0dfe943d8a60 6e320dc8cfa5 8254ba64cc2e 597332e98bb8 60afec1b40b4 03e2c2fdfe98
+sudo docker rmi f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
+sudo docker network rm f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 
-sudo docker rmi 7da6e0b79600 8798600b7aae a379ed56291a 21aa4d4e6ed0
+# enter docker bash
+sudo docker exec -it 6b6ccd749921 /bin/bash
+python3 kafka_consumer.py
 
-docker-compose up
+cd /home/sparkuser/.local/share/jupyter/runtime
+# exit 
+CTRL+D
+# try to get file path and files displayed
+cd /temp
+
+# TEST api
+curl -X 'POST' \
+  'http://classification-service:5000/predict' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "text": "Frodo felt a  strange certainty that in this matter Gollum was for once  not so far from the truth as might be suspected; that he had somehow found a  way out of Mordor, and at least believed that it was by his own cunning. For   one thing,  he noted  that Gollum used  I, and that  seemed usually to be  a   sign, on its rare appearances. that some remnants of old truth and sincerity  were  for  the moment on top. But even  if Gollum  could  be trusted on this  point, Frodo did not forget the wiles  of the  Enemy"
+}'
+
+# check logs 
+sudo docker logs 0dfe943d8a60
+# get jupyter lab  !!
+jupyter lab --ip='0.0.0.0' --port=8877 --no-browser --allow-root
+
+# check docker sock program 
+sudo service docker status
+
+# kill airflow 
+pkill -9 -f "airflow scheduler" 
+pkill -9 -f "airflow webserver" 
+pkill -9 -f "gunicorn"
+
+
+https://hub.docker.com/r/datamechanics/spark
+https://developershome.blog/2023/01/29/deploy-spark-using-docker/
+https://www.youtube.com/watch?v=WSfVEOsLTD8
+
 
 a container named listener-service will be spun up solely to allow exploration of the data stream. To access it, simply enter the container with the following command: 
 docker-compose exec listener-service bash

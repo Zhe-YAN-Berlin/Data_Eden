@@ -9,4 +9,4 @@ RUN pip install --upgrade pip
 COPY  requirements.txt .
 RUN pip3 install -r requirements.txt
 
-CMD jupyter-lab --allow-root --no-browser --ip=localhost --port=8888
+CMD jupyter-lab --allow-root --no-browser --ip=l0.0.0.0 --port=8888
