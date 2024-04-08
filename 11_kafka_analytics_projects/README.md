@@ -9,3 +9,5 @@ sudo docker stop 1dcc49355ef2 e29eec979c79 aeddc49d34cc a0946a1f8a53 a971c2ee654
 sudo docker rm 1dcc49355ef2 e29eec979c79 aeddc49d34cc a0946a1f8a53 a971c2ee6540
 
 sudo docker rmi 7da6e0b79600 8798600b7aae a379ed56291a 21aa4d4e6ed0
+
+docker-compose up
