@@ -13,12 +13,15 @@ sudo docker images
 sudo docker ps
 sudo docker stop c69432811c9a 748682c87c24 2a0fa24c73a1 fbb7a2c0574e 2cd11c89a8b4
 
-sudo docker rm d783b267e57b b9ee2567e17e d5e88d3b3bfe f1b084a50013 db1cfe8a14d7 1f0de13d9b49
+sudo docker rm 6302070937b3 a0e580215815 63286fe3dadd 2b210cfe63c0 eed2ad8966bc 51a6959db312
 sudo docker rmi ae245de64565 dfe67803e114 eb65f8f959a6
 sudo docker network rm 4022ff7fbdf2 fe650a0b0087
 
 # enter docker bash
-sudo docker exec -it 6302070937b3 /bin/bash
+sudo docker exec -it 1e6e3165e72f /bin/bash
+cd /home/sparkuser/.local/share/jupyter/runtime
+# exit 
+CTRL+D
 # try to get file path and files displayed
 cd /temp
 
@@ -33,7 +36,7 @@ curl -X 'POST' \
 # check logs 
 sudo docker logs 76a371e2dcdb
 # get jupyter lab  !!
-jupyter lab --ip='0.0.0.0' --port=8888 --no-browser --allow-root
+jupyter lab --ip='0.0.0.0' --port=8877 --no-browser --allow-root
 
 # check docker sock program 
 sudo service docker status
