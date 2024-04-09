@@ -1,10 +1,10 @@
 docker network create kafka-spark-network
 docker network ls
 
-sudo docker build . -t spark4kafka_image_0
+sudo docker build . -t spark4kafka_image
 sudo docker image ls
 # this docker only built by myself PLUS mounted files but dockerOperator will NOT leverage this docker, but create another one
-sudo docker run -p 8888:8888 --network 11_kafka_analytics_projects_default --name spark4kafka -d 6b27b36e5580 sleep infinity
+sudo docker run -p 8888:8888 --network 11_kafka_analytics_projects_default --name spark4kafka -d 7c8738eb1cc5 sleep infinity
 sudo docker ps
 sudo docker inspect 8e9bb82ef0ac
 
@@ -16,7 +16,8 @@ sudo docker rmi f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 sudo docker network rm f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 
 # enter docker bash
-sudo docker exec -it 8a3c111af3f5 /bin/bash
+sudo docker exec -it 22c02470a77c /bin/bash
+python3 kafka_consumer.py
 # check logs 
 sudo docker logs 0dfe943d8a60
 # get jupyter lab  !!
@@ -62,20 +63,21 @@ which java
 java --version
 spark-shell
 pyspark --version
+which pyspark
 
 echo 'export JAVA_HOME="${HOME}/usr/local/openjdk-11"' >> ~/.bashrc
 echo 'export PATH="${JAVA_HOME}/bin:${PATH}"' >> ~/.bashrc
 echo 'export SPARK_HOME="${HOME}/spark' >> ~/.bashrc
 echo 'export PATH="${SPARK_HOME}/bin:${PATH}"' >> ~/.bashrc
 
-export JAVA_HOME="${HOME}/usr/local/openjdk-11/"
+export JAVA_HOME="${HOME}/usr/local/openjdk-8/"
 export PATH="${JAVA_HOME}/bin:${PATH}"
-export SPARK_HOME="${HOME}/spark"
+export SPARK_HOME="${HOME}/opt/spark/spark-3.4.2-bin-hadoop3"
 export PATH="${SPARK_HOME}/bin:${PATH}"
 export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
-export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.3-src.zip:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH"
 source .bashrc
 
-apt-get update
-apt-get install nano
+sudo apt-get update
+sudo apt-get install nano
 
