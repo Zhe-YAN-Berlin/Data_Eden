@@ -16,7 +16,7 @@ sudo docker rmi f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 sudo docker network rm f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 
 # enter docker bash
-sudo docker exec -it 22c02470a77c /bin/bash
+sudo docker exec -it ad62e10d78d5 /bin/bash
 python3 kafka_consumer.py
 # check logs 
 sudo docker logs 0dfe943d8a60
