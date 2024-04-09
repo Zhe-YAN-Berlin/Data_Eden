@@ -5,7 +5,7 @@ USER root
 WORKDIR /opt/spark
 
 # download Kafka connector JAR files to Spark jars folders
-RUN wget -O /opt/spark/jars/spark-sql-kafka-0-10_2.12-3.2.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.2.1/spark-sql-kafka-0-10_2.12-3.2.1.jar
+#RUN wget -O /opt/spark/jars/spark-sql-kafka-0-10_2.12-3.2.1.jar https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.2.1/spark-sql-kafka-0-10_2.12-3.2.1.jar
 
 RUN pip install --upgrade pip
 
