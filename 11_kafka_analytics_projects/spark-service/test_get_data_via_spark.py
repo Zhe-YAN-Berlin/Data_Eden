@@ -1,6 +1,11 @@
 import os
 import pyspark
 from pyspark.sql import SparkSession
+import pyspark.sql.types as T
+from pyspark.sql.types import ArrayType, StringType
+import pyspark.sql.functions as F
+from pyspark.sql.functions import broadcast, regexp_replace, expr, udf, split
+from pyspark.sql.functions import col,StringType
 
 spark = SparkSession \
     .builder \
@@ -21,12 +26,14 @@ df_kafka_encoded = df_kafka_raw.selectExpr("CAST(key AS STRING)","CAST(value AS 
 print(type(df_kafka_encoded))
 df_kafka_encoded.printSchema()
 
-import pyspark.sql.types as T
-import pyspark.sql.functions as F
+df_kafka_raw.printSchema()
+df_kafka_encoded = df_kafka_raw.selectExpr("CAST(key AS STRING)","CAST(value AS STRING)")
+print(type(df_kafka_encoded))
+df_kafka_encoded.printSchema()
+
 col = F.split(df_kafka_encoded['value'], ', ')
 print(type(df_kafka_encoded['value']))
 print(type(col))
-print(type(col[0][0][0]))
 
 def parse_info_from_kafka_message(df_raw, schema):
     """ take a Spark Streaming df and parse value col based on <schema>, return streaming df cols in schema """
@@ -51,36 +58,43 @@ raw_schema = T.StructType(
 df_msg = parse_info_from_kafka_message(df_raw=df_kafka_raw, schema=raw_schema)
 df_msg.printSchema()
 print(type(df_msg))
-
 df_msg = df_msg.withColumn("id", F.regexp_replace("id", '"id": ', ''))
+df_msg = df_msg.withColumn("id", F.regexp_replace("id", '"', ''))
+df_msg = df_msg.withColumn("id", F.regexp_replace("id", '\\{', ''))
 df_msg = df_msg.withColumn("time", F.regexp_replace("time", '"time": ', ''))
 df_msg = df_msg.withColumn("readers", F.regexp_replace("readers", '"readers": ', ''))
 df_msg = df_msg.withColumn("text", F.regexp_replace("text", '"text":', ''))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", '\\}', ''))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", '\\.', ''))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", ':', ''))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", '"', ''))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", "'", " "))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", "\\*", ""))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", "`", ""))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", "\\?", ""))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", "#", ""))
+df_msg = df_msg.withColumn("text", F.regexp_replace("text", "!", ""))
 
-
-from pyspark.sql.functions import broadcast, col, regexp_replace, expr
-names_df = spark.read.text("entities.txt").rdd.map(lambda x: x[0]).collect()
-#print(names_df)
+names_df = spark.read.text("entities.txt").rdd.flatMap(lambda x: x).collect()
 broadcast_names = spark.sparkContext.broadcast(names_df)
-print(type(broadcast_names))
 
-from pyspark.sql.functions import col
+#names_df = ["Alice","Jan","Zoe"]
+#broadcast_names = spark.sparkContext.broadcast(names_df)
 
-from pyspark.sql.functions import col, udf
-from pyspark.sql.types import BooleanType
+# UDF has problem with Spark
+'''from pyspark.sql.functions import split
+def filter_text(text):
+    return text
+    #filtered_words = [value for value in broadcast_names.value if value in text]
+    #return ' '.join(filtered_words)
+filter_text_udf = udf(filter_text, StringType())'''
 
-# filtered_df = df_msg.filter(col("text").isin(broadcast_names.value))
-# 这个不行 因为text中的字段都是文章 而广播变量是一个个人名
+# test copy to a new colun - passed
+# filtered_df = df_msg.withColumn("filtered_text", col("text"))
 
-def filter_names(text):
-    names = broadcast_names.value
-    for name in names:
-        if name in text:
-            return True
-    return False
-
-filter_names_udf = udf(filter_names, BooleanType())
-filtered_df = df_msg.filter(filter_names_udf(col("text")))
+from pyspark.sql.functions import col, split, explode, array_intersect, array_join, lit, array
+split_df = df_msg.withColumn("split_text", split(col("text"), " "))
+filtered_names_df = split_df.withColumn("filtered_names", array_intersect(col("split_text"), array(*[lit(name) for name in broadcast_names.value])))
 
 def sink_console(df, output_mode: str = 'complete', processing_time: str = '30 seconds'):
     write_query = df.writeStream \
@@ -89,4 +103,5 @@ def sink_console(df, output_mode: str = 'complete', processing_time: str = '30 s
         .format("console") \
         .start()
     return write_query # pyspark.sql.streaming.StreamingQuery
-write_query = sink_console(df_msg, output_mode='append')
+
+write_query = sink_console(filtered_names_df, output_mode='append')
