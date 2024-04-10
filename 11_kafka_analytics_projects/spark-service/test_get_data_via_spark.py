@@ -38,12 +38,8 @@ print(type(col))'''
 def parse_info_from_kafka_message(df_raw, schema):
     """ take a Spark Streaming df and parse value col based on <schema>, return streaming df cols in schema """
     assert df_raw.isStreaming is True, "DataFrame doesn't receive streaming data"
-
     df = df_raw.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-
-    # split attributes to nested array in one Column
     col = F.split(df['value'], ', ')
-    # expand col to multiple top-level columns
     for idx, field in enumerate(schema):
         df = df.withColumn(field.name, col.getItem(idx).cast(field.dataType))
     return df.select([field.name for field in schema])
@@ -83,9 +79,6 @@ df_msg = df_msg.withColumn("text", F.regexp_replace("text", "!", ""))
 names_df = spark.read.text("entities.txt").rdd.flatMap(lambda x: x).collect()
 broadcast_names = spark.sparkContext.broadcast(names_df)
 
-#names_df = ["Alice","Jan","Zoe"]
-#broadcast_names = spark.sparkContext.broadcast(names_df)
-
 '''from pyspark.sql.functions import split
 def filter_text(text):
     return text
@@ -97,6 +90,8 @@ from pyspark.sql.functions import col, split, explode, array_intersect, array_jo
 split_df = df_msg.withColumn("split_text", split(col("text"), " "))
 filtered_names_df = split_df.withColumn("filtered_names", array_intersect(col("split_text"), array(*[lit(name) for name in broadcast_names.value])))
 
+semi_final_df = filtered_names_df.withColumn("mapping", create_map(col("filtered_names"), lit(filtered_names_df["readers"])))
+
 def sink_console(df, output_mode: str = 'complete', processing_time: str = '5 seconds'):
     write_query = df.writeStream \
         .outputMode(output_mode) \
@@ -105,4 +100,4 @@ def sink_console(df, output_mode: str = 'complete', processing_time: str = '5 se
         .start()
     return write_query # pyspark.sql.streaming.StreamingQuery
 
-write_query = sink_console(filtered_names_df, output_mode='append')
+write_query = sink_console(semi_final_df, output_mode='append')
