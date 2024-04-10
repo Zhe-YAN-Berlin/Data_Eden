@@ -16,7 +16,7 @@ sudo docker rmi f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 sudo docker network rm f1cf46142655 63fddf0987d4 c1076c3d31f9 c321b884b8db
 
 # enter docker bash
-sudo docker exec -it ad62e10d78d5 /bin/bash
+sudo docker exec -it 3c98f6a450e1 /bin/bash
 python3 kafka_consumer.py
 # check logs 
 sudo docker logs 0dfe943d8a60
@@ -37,7 +37,7 @@ curl -X 'POST' \
   'http://classification-service:5000/predict' \
   -H 'Content-Type: application/json' \
   -d '{
-  "text": "Frodo felt a  strange certainty that in this matter Gollum was for once  not so far from the truth as might be suspected; that he had somehow found a  way out of Mordor, and at least believed that it was by his own cunning. For   one thing,  he noted  that Gollum used  I, and that  seemed usually to be  a   sign, on its rare appearances. that some remnants of old truth and sincerity  were  for  the moment on top. But even  if Gollum  could  be trusted on this  point, Frodo did not forget the wiles  of the  Enemy"
+  "text": "Frodo felt a  strange certainty that in this matter Gollum was for once  not so far from the truth as might be suspected.But even  if Gollum  could  be trusted on this  point, Frodo did not forget the wiles  of the  Enemy"
 }'
 
 # check docker sock program 
