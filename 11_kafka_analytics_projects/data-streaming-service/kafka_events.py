@@ -4,6 +4,7 @@ import time
 import string
 import random
 from confluent_kafka import Producer
+import requests
 
 random.seed(10)
 DATA_FOLDER = 'texts'
@@ -19,6 +20,15 @@ def delivery_report(err, msg):
     else:
         print('Message delivered to {} [{}]'.format(msg.topic(), msg.partition()))
 
+def get_label(text):
+    url = 'http://classification-service:5000/predict'
+    headers = {'Content-Type': 'application/json'}
+    data = {
+        "text": text
+    }
+    response = requests.post(url, headers=headers, json=data)
+    return response.json()['label']
+
 def gen_message(files):
     f = random.choice(files)
     try:
@@ -27,15 +37,18 @@ def gen_message(files):
             "id": content["id"],
             "time": int(time.time()),
             "readers": random.randint(1e2, 1e5),
-            "text": content["text"]
+            "text": content["text"],
+            "label": get_label(content["text"])
         }
+        
     except UnicodeDecodeError:
         print("Read error", f)
         msg = {
             "id": "000000",
             "time": int(time.time()),
             "readers": random.randint(1e2, 1e5),
-            "text": ""
+            "text": "",
+            "label": ""
         }
     return msg
 
