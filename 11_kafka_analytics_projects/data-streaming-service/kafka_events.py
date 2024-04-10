@@ -34,11 +34,11 @@ def gen_message(files):
     try:
         content = read_file(f'{DATA_FOLDER}/{f}')
         msg = {
+            "label": get_label(content["text"]),
             "id": content["id"],
             "time": int(time.time()),
             "readers": random.randint(1e2, 1e5),
-            "text": content["text"],
-            "label": get_label(content["text"])
+            "text": content["text"]
         }
         
     except UnicodeDecodeError:

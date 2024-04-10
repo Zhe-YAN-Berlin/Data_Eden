@@ -26,14 +26,14 @@ df_kafka_encoded = df_kafka_raw.selectExpr("CAST(key AS STRING)","CAST(value AS 
 print(type(df_kafka_encoded))
 df_kafka_encoded.printSchema()
 
-df_kafka_raw.printSchema()
+'''df_kafka_raw.printSchema()
 df_kafka_encoded = df_kafka_raw.selectExpr("CAST(key AS STRING)","CAST(value AS STRING)")
 print(type(df_kafka_encoded))
 df_kafka_encoded.printSchema()
 
 col = F.split(df_kafka_encoded['value'], ', ')
 print(type(df_kafka_encoded['value']))
-print(type(col))
+print(type(col))'''
 
 def parse_info_from_kafka_message(df_raw, schema):
     """ take a Spark Streaming df and parse value col based on <schema>, return streaming df cols in schema """
@@ -48,16 +48,21 @@ def parse_info_from_kafka_message(df_raw, schema):
         df = df.withColumn(field.name, col.getItem(idx).cast(field.dataType))
     return df.select([field.name for field in schema])
 
-raw_schema = T.StructType(
-    [T.StructField("id", T.StringType()),
+new_schema = T.StructType(
+    [T.StructField("label", T.StringType()),
+     T.StructField("id", T.StringType()),
      T.StructField('time', T.StringType()),
      T.StructField('readers', T.StringType()),
      T.StructField("text", T.StringType())
      ])
 
-df_msg = parse_info_from_kafka_message(df_raw=df_kafka_raw, schema=raw_schema)
+df_msg = parse_info_from_kafka_message(df_raw=df_kafka_raw, schema=new_schema)
 df_msg.printSchema()
 print(type(df_msg))
+
+df_msg = df_msg.withColumn("label", F.regexp_replace("label", '"', ''))
+df_msg = df_msg.withColumn("label", F.regexp_replace("label", 'label: ', ''))
+df_msg = df_msg.withColumn("label", F.regexp_replace("label", '\\{', ''))
 df_msg = df_msg.withColumn("id", F.regexp_replace("id", '"id": ', ''))
 df_msg = df_msg.withColumn("id", F.regexp_replace("id", '"', ''))
 df_msg = df_msg.withColumn("id", F.regexp_replace("id", '\\{', ''))
@@ -81,7 +86,6 @@ broadcast_names = spark.sparkContext.broadcast(names_df)
 #names_df = ["Alice","Jan","Zoe"]
 #broadcast_names = spark.sparkContext.broadcast(names_df)
 
-# UDF has problem with Spark
 '''from pyspark.sql.functions import split
 def filter_text(text):
     return text
@@ -89,14 +93,11 @@ def filter_text(text):
     #return ' '.join(filtered_words)
 filter_text_udf = udf(filter_text, StringType())'''
 
-# test copy to a new colun - passed
-# filtered_df = df_msg.withColumn("filtered_text", col("text"))
-
 from pyspark.sql.functions import col, split, explode, array_intersect, array_join, lit, array
 split_df = df_msg.withColumn("split_text", split(col("text"), " "))
 filtered_names_df = split_df.withColumn("filtered_names", array_intersect(col("split_text"), array(*[lit(name) for name in broadcast_names.value])))
 
-def sink_console(df, output_mode: str = 'complete', processing_time: str = '30 seconds'):
+def sink_console(df, output_mode: str = 'complete', processing_time: str = '5 seconds'):
     write_query = df.writeStream \
         .outputMode(output_mode) \
         .trigger(processingTime=processing_time) \
