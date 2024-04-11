@@ -80,3 +80,17 @@ source .bashrc
 sudo apt-get update
 sudo apt-get install nano
 
+# Postgres
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="spark_db" \
+  -p 5432:5432 \
+  --network 11_kafka_analytics_projects_default \
+  --name sql_db
+postgres:13
+
+root@d5341d040d38:/var/lib/postgresql/data# ls
+find / -name pg_hba.conf
+sudo apt update
+sudo apt install nano

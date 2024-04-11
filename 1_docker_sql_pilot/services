@@ -4,16 +4,16 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=ny_taxi
-    volumes:
-      - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
+      - POSTGRES_DB=spark_db
+    #volumes:
+    # - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
       - "5432:5432"
 
 docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
-  -e POSTGRES_DB="ny_taxi" \
-  -v /home/codespace/Data_Eden/1_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -e POSTGRES_DB="spark_db" \
   -p 5432:5432 \
 postgres:13
+
