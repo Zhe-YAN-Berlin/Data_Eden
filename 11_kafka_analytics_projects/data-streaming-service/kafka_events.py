@@ -59,6 +59,6 @@ while True:
     msg = gen_message(files)
     p.poll(0)
     p.produce('events', json.dumps(msg).encode('utf-8'), callback=delivery_report)
-    time.sleep(random.random()*2)
+    time.sleep(30)
 
 p.flush()

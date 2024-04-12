@@ -4,8 +4,9 @@ from pyspark.sql import SparkSession
 import pyspark.sql.types as T
 from pyspark.sql.types import ArrayType, StringType
 import pyspark.sql.functions as F
-from pyspark.sql.functions import broadcast, regexp_replace, expr, udf, split, lit
-from pyspark.sql.functions import col, StringType, explode, array_intersect, array_join, array, create_map
+from pyspark.sql.functions import broadcast, regexp_replace, expr, udf, split
+from pyspark.sql.functions import col,StringType
+#from py4j.java_gateway import JavaGateway
 
 spark = SparkSession \
     .builder \
@@ -35,9 +36,12 @@ df_kafka_encoded.printSchema()
 def parse_info_from_kafka_message(df_raw, schema):
     """ take a Spark Streaming df and parse value col based on <schema>, return streaming df cols in schema """
     assert df_raw.isStreaming is True, "DataFrame doesn't receive streaming data"
-    df = df_raw.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-    col = F.split(df['value'], ', ')
 
+    df = df_raw.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+
+    # split attributes to nested array in one Column
+    col = F.split(df['value'], ', ')
+    # expand col to multiple top-level columns
     for idx, field in enumerate(schema):
         df = df.withColumn(field.name, col.getItem(idx).cast(field.dataType))
     return df.select([field.name for field in schema])
@@ -51,6 +55,8 @@ new_schema = T.StructType(
      ])
 
 df_msg = parse_info_from_kafka_message(df_raw=df_kafka_raw, schema=new_schema)
+df_msg.printSchema()
+#print(type(df_msg))
 
 df_msg = df_msg.withColumn("label", F.regexp_replace("label", '"', ''))
 df_msg = df_msg.withColumn("label", F.regexp_replace("label", 'label: ', ''))
@@ -80,40 +86,55 @@ broadcast_names = spark.sparkContext.broadcast(names_df)
 #names_df = ["Alice","Jan","Zoe"]
 #broadcast_names = spark.sparkContext.broadcast(names_df)
 
+from pyspark.sql.functions import col, split, explode, array_intersect, array_join, lit, array,create_map,explode
 split_df = df_msg.withColumn("split_text", split(col("text"), " "))
 filtered_names_df = split_df.withColumn("filtered_names", array_intersect(col("split_text"), array(*[lit(name) for name in broadcast_names.value])))
 
 semi_final_df = filtered_names_df.withColumn("mapping", create_map(col("filtered_names"), lit(filtered_names_df["readers"])))
 
+# test successful -> direct write stream to CSV
+streamingQuery = (df_msg.writeStream
+.format("csv")
+.option("path", "/opt/spark/output_path")
+.option("checkpointLocation", "checkpoint")
+.start())
 
+streamingQuery.stop()
+
+# test loading data into SQL
 def write_to_postgres(df, batch_id):
-    df_new = df.write \
-    .format("jdbc") \
-    .option("driver", "org.postgresql.Driver") \
-    .option("url", "jdbc:postgresql://172.23.0.7:5432/postgres") \
-    .option("dbtable", "spark_data") \
-    .option("user", "root") \
-    .option("password", "root") \
-    .mode("append") \
-    .save()
-    return df_new
+    (
+        df.write
+        .format("jdbc")
+        .option("driver", "org.postgresql.Driver")
+        .option("url", "jdbc:postgresql://172.23.0.7:5432/postgres")
+        .option("dbtable", "spark_data")
+        .option("user", "root")
+        .option("password", "root")
+        .outputMode("append")
+        .save()
+    )
+    df.show()
 
-df_final = df_msg \
-    .writeStream \
-    .foreachBatch(write_to_postgres) \
-    .trigger(processingTime='10 seconds') \
+(df_msg
+    .writeStream
+    .foreachBatch(write_to_postgres)
+    .trigger(processingTime='10 seconds')
+    .option("checkpointLocation", "checkpoint")
     .start()
+)
 #.option("checkpointLocation", "checkpoint") \
 
-###   only for print the output   ###
+
+
+
+# for print the output only
 def sink_console(df, output_mode: str = 'complete', processing_time: str = '5 seconds'):
     write_query = df.writeStream \
         .outputMode(output_mode) \
         .trigger(processingTime=processing_time) \
         .format("console") \
         .start()
-    return write_query
+    return write_query # pyspark.sql.streaming.StreamingQuery
+
 write_query = sink_console(df_msg, output_mode='append')
-
-
-
