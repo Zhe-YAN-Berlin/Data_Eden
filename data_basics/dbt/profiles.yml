@@ -1,0 +1,21 @@
+default:
+  target:staging
+  outputs:
+    staging:
+      type: spark
+      method: thrift
+      schema: staging_db
+      host: thrift-host.com
+      prot : 10000
+      user : dbt_hive
+      database : staging_db
+      retries: 3
+    production:
+      type: spark
+      method: thrift
+      schema: prod_db
+      host: thrift-host.com
+      port: 10000
+      user: dbt_hive
+      database: prod_db
+      retries: 3
